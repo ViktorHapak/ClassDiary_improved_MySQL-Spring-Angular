@@ -1,0 +1,46 @@
+<div class="main-container">
+
+  <div class="demo-message-div" *ngIf="!isLoggedIn">
+      <p>Üdvözöllek a weboldalam demo módjában! A megtekintéshez használjon anonim bejelentkezést!</p>
+      <ul>
+          <li>Felhasználónév: <i>anonymus</i></li>
+          <li>Jelszó: <i>Anonim123...</i></li>
+      </ul>
+  </div>
+
+  <div class="nav-container">
+    <ul>
+      <a routerLink="/home" class="navbar-brand">
+        <!--<i class="fa fa-building" aria-hidden="true"></i> -->
+        <img class="navbar-logo" src="assets/logo/logo.webp" alt="Logo"/>
+        <span class="navbar-label">MyDiary</span>
+      </a>
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" id="home-li"><a routerLink="">Főoldal</a></li>
+      <li routerLinkActive="active"><a routerLink="/grades">Osztályzatok</a></li>
+      <li class="menu-toggle">
+        <a (click)="isRightMenuOpen = true">
+          <i class="fa fa-bars"></i>
+        </a>
+      </li>
+      <div class="right-nav" [ngClass]="{'open': isRightMenuOpen}">
+        <a class="close-box" (click)="isRightMenuOpen = false"><i class="fa fa-close"></i></a>
+        <li routerLinkActive="active"><a routerLink="/register">Regisztráció</a></li>
+        <li routerLinkActive="active" *ngIf="!isLoggedIn"><a routerLink="/login">Bejelentkezés</a></li>
+        <li *ngIf="isLoggedIn"><a (click)="logout()">Kijelentkezés</a></li>
+      </div>
+    </ul>
+  </div>
+  <div class="component-container">
+    <router-outlet></router-outlet>
+  </div>
+  <div [ngClass]="this.messageMode? 'message-div' : 'no-message'">
+    <div class="first-raw">
+      <a>{{this.messageText}} </a>
+      <button type="button" class="btn btn-outline-danger btn-sm"
+      (click)="closeMessage()">x</button>
+    </div>
+    <button type="submit" class="btn btn-primary btn-block ok" (click)="closeMessage()"
+            appButtonHover [highlightColor]="'#85c1e9'">OK</button>
+  </div>
+</div>
+

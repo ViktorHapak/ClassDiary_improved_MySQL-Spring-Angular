@@ -1,0 +1,19 @@
+<div class="container">
+  <img [src]="img.dataUrl">
+  <div class="img-info">
+    <button class="btn btn-outline-danger" (click)="close()">X</button>
+
+    <div class="info-details">
+      <table class="info-details">
+        <tbody>
+          <tr *ngFor="let key of Object.keys(imgDetails)">
+            <td class="key-field">{{ key }}</td>
+            <td class="value-field">{{ imgDetails[key] }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+  </div>
+</div>

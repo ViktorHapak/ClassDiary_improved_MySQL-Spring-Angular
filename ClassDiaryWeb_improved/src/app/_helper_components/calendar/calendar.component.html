@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="data-title">
+    <a>{{displayDate|dateFormatter}}</a>
+  </div>
+  <div class="week-days">
+    <a *ngFor="let i of Array.of(1,2,3,4,5,6,7)">
+      {{ i|weekFormatter }}
+    </a>
+  </div>
+  <div class="month-datas" #daysContainer>
+    <!-- Filled dynamically by renderer --->
+  </div>
+  <div class="selector-div">
+    <div class="btn-group-sm w-100 p-2 d-flex gap-1">
+      <button type="button" class="btn btn-primary w-50" (click)="yearScroll = !yearScroll">{{activeYear}}</button>
+      <button type="button" class="btn btn-primary w-50" (click)="monthScroll = !monthScroll">{{activeMonth|monthFormatter}}</button>
+    </div>
+    <div
+      class="year-scroll scroll-div"
+      *ngIf="yearScroll"
+      (click)="$event.stopPropagation()">
+
+      <button
+        type="button" *ngFor="let year of yearsToScroll" class="scroll-option"
+        [class.current-option]="year === activeYear" (click)="selectYear(year, $event)">
+        {{ year }}
+      </button>
+    </div>
+    <div
+      class="month-scroll scroll-div"
+      *ngIf="monthScroll"
+      (click)="$event.stopPropagation()">
+
+      <button
+        type="button"
+        *ngFor="let month of monthIndexes"
+        class="scroll-option"
+        [class.current-option]="month === activeMonth"
+        (click)="selectMonth(month, $event)">
+
+        {{ month | monthFormatter }}
+      </button>
+    </div>
+  </div>
+</div>

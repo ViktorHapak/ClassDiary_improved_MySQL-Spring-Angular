@@ -1,0 +1,32 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+
+.btn-success.product-submit:disabled,
+.btn-primary.product-submit:disabled,
+.btn-info.product-submit:disabled,
+.btn-warning.product-submit:disabled,
+.btn-danger.product-submit:disabled,
+.btn-dark.product-submit:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.alert-warning {
+  font-weight: bold;
+  border-width: medium;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+}
+
+.alert-danger {
+  font-weight: bold;
+  border-width: medium;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.25);
+}
+
+.disabled-tooltip {
+  display: inline-block;
+}
+
+.disabled-tooltip > button:disabled {
+  pointer-events: none;
+}

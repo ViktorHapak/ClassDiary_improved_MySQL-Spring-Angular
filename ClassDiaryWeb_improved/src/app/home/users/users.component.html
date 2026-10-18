@@ -1,0 +1,127 @@
+<div class="container">
+  <div class="pagination-div">
+    <div class="page-controls" style="margin-top: 20px">
+    <pagination-controls
+                         previousLabel="Prev"
+                         nextLabel="Next"
+                         [responsive]="true"
+                         (pageChange)="handlePageChange($event)"
+    ></pagination-controls>
+    </div>
+
+    <div class="sizelength-div">
+      <label style="font-weight: 750" for="pagesize-selector">Felhasználó/oldal:</label>
+      <input type="number" id="pagesize-selector" [(ngModel)]="size" (ngModelChange)="handleSizeChange($event)">
+    </div>
+
+  </div>
+
+  <div class="data-div">
+    <div class="users-div">
+      <table class="users-table">
+        <thead>
+        <tr>
+          <th class="name-th">Felhasználók</th>
+          <th class="operations-th"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngIf="users.length === 0">
+          <td colspan="2">
+            <div class="empty-div">
+              <label class="empty-label">
+                Nincs keresésnek megfelelő találat!
+              </label>
+            </div>
+          </td>
+        </tr>
+        <tr *ngFor="let user of users | paginate : {itemsPerPage: size,
+                  currentPage: page,
+                  totalItems: count}">
+          <td class="name-td" style="padding-left: 10px">{{user.username}}</td>
+          <td class="operations-td btn-group-sm">
+            <span class="disabled-tooltip"
+                  [title]="(user.username == this.storageService.getUser().username || !adminAccess()) ? 'Nincs jogosultsága a művelethez': ''"
+            >
+              <button class="btn btn-danger mx-2 my-2" (click)="removeUser(user)"
+                      [disabled]="isOwnUser(user.username) || !adminAccess()"
+                      appButtonHover [highlightColor]="'#f5b7b1'">
+                <i class="fa fa-trash"></i>
+              </button>
+            </span>
+            <span class="disabled-tooltip"
+                  [title]="(user.id == currentIndex || (!teacherAccess() && !anonymAccess() && user.username !== this.storageService.getUser().username)) ? 'Nincs jogosultsága a művelethez': ''"
+            >
+              <button class="btn btn-info mx-2 my-2" (click)="callInfo(user)"
+                      [disabled]="user.id == currentIndex || (!teacherAccess() && !anonymAccess() && user.username !== this.storageService.getUser().username)"
+                      appButtonHover [highlightColor]="'#cff4fc'">
+                <i class="fa fa-info"></i>
+              </button>
+            </span>
+          </td>
+          <i class="fa fa-user-check own-user-marking" *ngIf="isOwnUser(user.username)"></i>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="info-div">
+      <div class="title-div">
+        <h3 class="students-title" style="text-align: center;">A felhasználó adatai</h3>
+      </div>
+      <div class="search-div" >
+        <input type="text" placeholder="Felhasználónév" [(ngModel)]="name" (ngModelChange)="searchByName()">
+        <button class="btn btn-primary" appButtonHover [highlightColor]="'#85c1e9'">
+          <i class="fa fa-magnifying-glass"></i></button>
+      </div>
+      <div class="roles-div">
+        <div *ngFor="let radioValue of roleNames">
+          <input type="radio" name="roleFilter" value="{{radioValue}}" [(ngModel)]="currentRoleName"
+                 (ngModelChange)="searchByRole()">
+          <span><label>{{radioValue|rolename}}</label></span>
+        </div>
+      </div>
+      <div class="current-div" *ngIf="currentIndex != -1">
+        <div class="current-data-div">
+         <a><label><strong>Id:</strong> </label>{{currentIndex}}</a>
+         <a><label><strong>Név:</strong> </label>{{currentUser.lastname}} {{currentUser.firstname}}</a>
+         <a><label><strong>Email:</strong> </label>{{currentUser.email}}</a>
+         <a><label><strong>Jog.:</strong> </label>{{currentUser.userrole|rolename}}</a>
+         <a *ngIf="currentUser.userrole.includes('ROLE_ClassHead')">
+           <label><strong>Osztály.:</strong> </label> {{currentUser.sclass}}</a>
+         <a *ngIf="currentUser.userrole.includes('ROLE_Teacher') || currentUser.userrole.includes('ROLE_ClassHead')">
+          <label><strong>Tanári viszonyok:</strong></label></a>
+         <ul *ngIf="currentUser.userrole.includes('ROLE_Teacher') || currentUser.userrole.includes('ROLE_ClassHead')">
+           <li *ngFor="let registry of currentUser.teacherRegistries">{{registry}}</li>
+         </ul>
+          <a *ngIf="currentUser.userrole.includes('ROLE_Parent')">
+            <label><strong>Szülői viszonyok:</strong></label></a>
+          <ul *ngIf="currentUser.userrole.includes('ROLE_Parent')">
+            <li *ngFor="let child of currentUser.children">{{child}}</li>
+          </ul>
+        </div>
+        <div class="btn-group-sm refresh-div">
+          <span class="disabled-tooltip"
+                [title]="!adminAccess() ? 'Nincs jogosultsága a művelethez': ''"
+          >
+            <button class="btn btn-warning mx-1 my-1" (click)="openForm('update',currentUser)"
+                    appButtonHover [highlightColor]="'#fff3cd'"
+                    [disabled]="!adminAccess()">
+                Módosítás
+            </button>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="overlap" *ngIf="crudMode"></div>
+
+  <div class="details-container" *ngIf="crudMode">
+    <app-user-details
+      [operation]="crudOperation"
+      [index]="currentIndex"
+      (formClose)="crudMode = false"
+      (crudDone)="setMessage($event)"></app-user-details>
+  </div>
+</div>

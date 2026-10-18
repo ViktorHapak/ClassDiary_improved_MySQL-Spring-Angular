@@ -1,0 +1,99 @@
+<div class="container">
+  <div class="title-div">
+    <div><a><strong>Galéria</strong></a></div>
+    <button class="btn btn-outline-danger" (click)="close()">X</button>
+  </div>
+  <hr>
+  <div class="controls">
+    <div class="search-div">
+      <div class="image-title-div">
+        <div class="search-box">
+          <input type="text" id="name-input" placeholder="Képcím" [(ngModel)]="search_title"
+                 (ngModelChange)="searchByTag()">
+          <button class="btn btn-primary" appButtonHover [highlightColor]="'#85c1e9'" (click)="searchByName()">
+            <i class="fa fa-magnifying-glass"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="class-filter-div">
+        <div class="filter-box">
+          <label for="sclass-selector">Osztály:</label>
+          <select id="sclass-selector" #select (change)="searchByClassName(select.value)">
+            <option [value]='"all"' selected>all</option>
+            <option *ngFor="let sclass of classNames" [value]="sclass">
+              {{ sclass }}
+            </option>
+            <option [value]='"null"'>null</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="upload-div control-div">
+      <div class="target-div">
+        <label for="file-input" class="btn btn-primary upload-btn">
+          Képfájl
+        </label>
+
+        <span class="file-name">
+          {{ 'Válasszon ki fájlt képfájlt az eszközről!' }}
+        </span>
+
+        <input type="file" id="file-input" hidden (change)="loadImage($event)">
+      </div>
+    </div>
+
+    <div class="error-div control-div" *ngIf="errorMessage.trim().length > 0">
+      <small style="color:red; text-align: center"> {{errorMessage}}</small>
+    </div>
+
+    <div class="imgs-container"
+         (dragenter)="dragEnter($event)"
+         (dragover)="dragOver($event)"
+         (dragleave)="dragLeave($event)"
+         (drop)="dropImage($event)">
+      <div class="pull-div" [ngClass]="{'dragging':this.dragging}" >
+        <i class="fa fa-upload"></i>
+      </div>
+      <div class="empty-div" *ngIf="images.length === 0">
+        <label class="empty-label">
+          Nincs keresésnek megfelelő találat!
+        </label>
+      </div>
+      <div class="img-div" *ngIf="images.length > 0">
+        <div *ngFor="let image of images" class="img-frame" id="img-frame-{{image.id}}"
+             (mouseenter)="hover_id = image.id"; (mouseleave)="hover_id = null"
+             (click)="focus(event,image,image.id)">
+          <img  [src]="image.dataUrl">
+          <div [ngClass]="hover_id === image.id ? 'img-cover' : 'no-cover'">
+            <div class="btn-group-sm rows">
+                <button class="btn btn-danger mx-1" (click)="$event.stopPropagation(); removeImage(image.id)"
+                        appButtonHover [highlightColor]="'#f5b7b1'"
+                >
+                  <i class="fa fa-trash"></i>
+                </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-success w-50 mx-auto d-block my-4"
+            appButtonHover [highlightColor]="'#82e0aa'" (click)="synchronize()">
+      <i class="fa fa-refresh"></i> Szinkronizáció
+    </button>
+  </div>
+
+  <a class="notify-panel alert alert-success" *ngIf="notificationMessage.trim().length>0">
+    {{notificationMessage}}
+  </a>
+
+  <div class="img-container" *ngIf="focus_id != null">
+    <app-img-details
+       [img]="focus_img" [id]="focus_id"
+       (imgClose)="focus_id = null">
+    </app-img-details>
+  </div>
+
+</div>
+

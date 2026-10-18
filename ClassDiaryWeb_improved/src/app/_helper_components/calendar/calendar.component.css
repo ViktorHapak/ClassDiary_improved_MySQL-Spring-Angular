@@ -1,0 +1,146 @@
+.container {
+  display: block;
+  width: 350px;
+  height: auto;
+  padding: 2px;
+  background-color: white;
+  border-radius: 2px;
+  box-shadow: 0 0 2px rgba(0, 0, 255, 0.9) !important;
+}
+
+.data-title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: darkblue;
+  color: white;
+  font-weight: 700;
+  padding: 20px;
+}
+.week-days{
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  background-color: darkgray;
+}
+
+.week-days a{
+  display: flex;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+  font-size: 10px;
+  padding: 2px;
+}
+
+.month-datas{
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  background-color: white;
+}
+
+.month-datas a{
+  display: flex;
+  justify-content: center;
+  padding: 3px;
+  font-weight: 600;
+  font-size: 11px;
+}
+
+.inactive_date{
+  color: lightgray;
+  background-color: white;
+  font-weight: bold;
+}
+
+.current_date{
+  color: white;
+  background-color: gray;
+}
+
+.active_date{
+  color: orange;
+  background-color: white;
+  font-weight: bold;
+}
+
+.active_date:hover{
+  color: white;
+  background-color: orange;
+  cursor: pointer;
+}
+
+.selector-div {
+  position: relative;
+  width: 100%;
+}
+
+.scroll-div {
+  position: absolute;
+  bottom: 43px;
+  padding: 4px;
+  background-color: white;
+  border: 1px solid #6f8cff;
+  box-shadow: 0 2px 8px rgba(0, 0, 80, 0.25);
+  z-index: 20;
+}
+
+.year-scroll {
+  left: 8px;
+  width: calc(50% - 10px);
+  max-height: 260px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.month-scroll {
+  right: 8px;
+  width: calc(50% - 10px);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3px;
+}
+
+.scroll-option {
+  border: 0;
+  padding: 5px;
+  color: darkorange;
+  background-color: white;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+}
+
+.scroll-option:hover {
+  color: white;
+  background-color: orange;
+}
+
+.scroll-option.current-option {
+  color: white;
+  background-color: gray;
+}
+
+@media (max-width: 850px){
+  .container{
+    width: 250px;
+  }
+
+  .data-title{
+    padding: 10px;
+  }
+
+  .year-scroll {
+    max-height: 200px;
+  }
+}
+
+
+
+
+
+
+
+
+

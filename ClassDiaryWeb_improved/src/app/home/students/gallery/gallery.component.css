@@ -1,0 +1,406 @@
+.container{
+  position: relative;
+  background-color: #eaeeee;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  padding-top: 5px;
+  padding-bottom: 10px;
+  box-shadow: 0 0 5px rgba(25, 25, 25, 0.9) !important;
+  z-index: 7;
+  overflow-scrolling: touch;
+}
+
+.title-div{
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 26px;
+  padding: 10px;
+}
+
+.controls{
+  width: 100%;
+  padding: 2% 5% 0% 5%;
+  display: block;
+}
+
+.search-div {
+  width: 100%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  gap: 10px;
+}
+
+.image-title-div {
+  width: 70%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.search-box {
+  width: 85%;
+  max-width: 560px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.search-box input[type="text"] {
+  flex: 1;
+  height: 38px;
+  padding-left: 12px;
+  background-color: #f1fcfc;
+  border: 0.1px solid gray;
+  outline: none;
+  border-radius: 0.5rem 0 0 0.5rem;
+}
+
+.search-box button {
+  width: 75px;
+  height: 38px;
+  padding: 0;
+  border-radius: 0 0.5rem 0.5rem 0;
+  flex-shrink: 0;
+}
+
+.class-filter-div {
+  width: 30%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.filter-box {
+  width: auto;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filter-box label {
+  font-weight: 700;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.filter-box select {
+  width: 55px;
+  height: 38px;
+  background-color: #f1fcfc;
+  border: 0.1px solid gray;
+  border-radius: 5px;
+  padding: 2px;
+  overflow: scroll;
+}
+
+select:focus {
+  outline: none;
+  border-color: #5dade2;
+  box-shadow: 0 0 5px rgba(93, 173, 226, 0.5);
+}
+
+.search-box button:focus,
+.search-box input:focus {
+  outline: none;
+  box-shadow: 0 0 2px gray !important;
+  border: 0.1px solid gray;
+}
+
+.search-box button:hover,
+.search-box input:hover {
+  box-shadow: 0 0 2px greenyellow !important;
+  border: 0.1px solid greenyellow;
+}
+
+select:hover {
+  border-color: #82e0aa;
+  cursor: pointer;
+}
+
+select option {
+  padding: 10px;
+  font-size: 16px;
+  background-color: white;
+  color: black;
+  overflow-y: scroll;
+}
+
+select option:checked {
+  background-color: darkgray;
+  color: white;
+}
+
+select[multiple]{
+  max-height: 38px;
+  overflow-y: auto;
+}
+
+.upload-div {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.target-div {
+  width: 100%;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  border: 1px solid black;
+  background-color: #f1fcfc;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.upload-btn {
+  height: 100%;
+  min-width: 170px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0;
+  border-radius: 0.5rem 0 0 0.5rem;
+  font-weight: 700;
+}
+
+.file-name {
+  flex: 1;
+  text-align: right;
+  padding: 0 14px;
+  color: #555;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.error-div {
+  width: 100%;
+  margin-top: 10px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.imgs-container{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.empty-div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 220px;
+  padding: 20px;
+  background-color: white;
+  border: 0.2px solid lightgray;
+}
+
+.empty-label{
+  font-weight: 600;
+  font-size: 17px;
+  color: lightgrey;
+  font-style: italic;
+  font-family: Arial, Helvetica, sans-serif;
+  white-space: normal;
+  overflow-wrap: break-word;
+  text-align: center;
+}
+
+.img-div{
+  padding: 5px;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+  border: 1px solid lightgray;
+  background-color: white;
+  min-height: 220px;
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.pull-div {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(211, 211, 211, 0.75);
+  color: black;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 13;
+  transition: opacity 0.15s ease;
+}
+
+.pull-div.dragging {
+  opacity: 1;
+  visibility: visible;
+}
+
+.pull-div i {
+  font-size: 35px;
+}
+
+.img-frame{
+  overflow: hidden;
+  position: relative;
+  height: 220px;
+}
+
+.img-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  z-index: 8;
+}
+
+.img-cover{
+  position: absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.6);
+  cursor: pointer;
+  z-index: 9;
+}
+
+.img-cover div{
+  position: absolute;
+  bottom:10px;
+  right:10px;
+}
+
+.img-cover div button{
+  position: absolute;
+  bottom:10px;
+  right:10px;
+  z-index: 15;
+}
+
+.no-cover{
+  display: none !important;
+}
+
+.notify-panel{
+  position: fixed;
+  top: 15px;
+  right: 20px;
+  z-index: 11;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transition: 1s;
+  animation: notifyFade 5s linear forwards;
+}
+
+.img-container{
+  position: fixed;
+  top: 5%;
+  right: 50px;
+  margin-right: 50px;
+  height: 500px;
+  max-width: 85%;
+  z-index: 10;
+}
+
+@keyframes notifyFade {
+  0% {
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 1050px){
+  .img-div{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    height: 250px;
+  }
+}
+
+@media (max-width: 850px) {
+
+  .search-div {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .search-box, .filter-box {
+    height: 30px;
+  }
+
+  .image-title-div,
+  .class-filter-div {
+    width: 100%;
+  }
+
+  .class-filter-div {
+    justify-content: flex-start;
+  }
+
+  .search-box {
+    width: 100%;
+  }
+
+  .filter-box {
+    height: 30px;
+    margin: 10px 0 10px 0;
+  }
+
+  .error-div {
+    height: 20%;
+    margin-top: 10px;
+    margin-bottom: -5px;
+  }
+
+  .img-div{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    height: 250px;
+  }
+
+  .img-container{
+    position: fixed;
+    top: 5%;
+    right: 10%;
+    left: 10%;
+    width: 80%;
+  }
+
+  .file-name{
+    font-size: 8px;
+    color: lightgray;
+  }
+}
+
+

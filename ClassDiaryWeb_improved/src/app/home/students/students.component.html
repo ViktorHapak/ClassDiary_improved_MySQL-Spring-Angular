@@ -1,0 +1,174 @@
+<div class="container">
+  <div class="sclass-container">
+    <div class="selector-div">
+     <label style="text-align: left" for="class-selector">Osztály:</label>
+     <select [(ngModel)]="currentSclassName" id="class-selector" (ngModelChange)="filterByClass()">
+       <option [value]="" selected></option>
+       <option *ngFor="let className of currentYearSclassNames" [value]="className">
+         {{ className }}
+       </option>
+       <option>null</option>
+
+     </select>
+    </div>
+    <div class="sclass-buttons btn-group-sm">
+      <select [(ngModel)]="currentYear" id="year-selector" (ngModelChange)="filterClassesByYear()">
+        <option [value]="" disabled selected>Évfolyam</option>
+        <option *ngFor="let num of Array.of(1,2,3,4,5,6,7,8)" [value]="num">
+          {{ num }}
+        </option>
+      </select>
+      <span class="disabled-tooltip" [title]="!adminAccess() ? 'Nincs jogosultsága a művelethez': ''">
+        <button type="button" class="btn btn-success" [disabled]="currentYear == null || !adminAccess()"
+                appButtonHover [highlightColor]="'#82e0aa'" (click)="addNewClass()"
+        >
+        Hozzáadás
+        </button>
+      </span>
+      <span class="disabled-tooltip" [title]="!adminAccess() ? 'Nincs jogosultsága a művelethez': ''">
+        <button type="button" class="btn btn-danger" [disabled]="currentSclassName === 'null' ||
+         currentSclassName === '' || currentSclassName == null || !adminAccess()"
+                appButtonHover [highlightColor]="'#f5b7b1'" (click)="removeClass()"
+        >
+          Törlés
+        </button>
+      </span>
+    </div>
+  </div>
+
+  <div class="search-div">
+   <div class="search-box">
+    <input class="search" placeholder="Search..." [(ngModel)]="name" (ngModelChange)="searchByName()">
+    <button class="search-button" type="submit">
+      <i class="fa fa-search"></i></button>
+   </div>
+  </div>
+
+  <div class="pagination-container">
+    <pagination-controls style=""
+      previousLabel="Prev"
+      nextLabel="Next"
+      [responsive]="true"
+      (pageChange)="handlePageChange($event)"
+    ></pagination-controls>
+  </div>
+
+  <div class="title-div">
+    <a class="students-title">Tanulók listája</a>
+
+    <div class="sizelength-div">
+      <label style="font-weight: 750" for="pagesize-selector">Tanuló/oldal:</label>
+      <input type="number" id="pagesize-selector" [(ngModel)]="size" (ngModelChange)="handleSizeChange($event)">
+    </div>
+  </div>
+
+
+  <div class="student-container">
+    <table class="table table-bordered">
+      <thead style="background-color: darkblue; color: white">
+       <tr>
+        <th class="text-center">Név</th>
+        <th class="text-center">Szül. dátum</th>
+        <th class="text-center">Lakcím</th>
+        <th class="text-center">Műveletek</th>
+       </tr>
+      </thead>
+      <tbody>
+      <tr *ngIf="students.length === 0">
+        <td colspan="4">
+          <div class="empty-div">
+            <label class="empty-label">
+              Nincs keresésnek megfelelő találat!
+            </label>
+          </div>
+        </td>
+      </tr>
+      <tr *ngFor="let student of students | paginate : {itemsPerPage: size,
+                  currentPage: page,
+                  totalItems: count}">
+        <td class="">{{student.name}}</td>
+        <td>{{student.birth | date: 'yyyy-MM-dd'}}</td>
+        <td>{{student.address}}</td>
+        <td class="btn-group-sm text-center">
+          <span class="disabled-tooltip"
+                [title]="!adminAccess() ? 'Nincs jogosultsága a művelethez': ''"
+          >
+            <button class="btn btn-danger btn-sm mx-1 my-1" (click)="removeStudent(student)"
+                    [disabled]="!adminAccess()" appButtonHover [highlightColor]="'#f5b7b1'">
+            <i class="fa fa-trash"></i>
+          </button>
+          </span>
+          <span class="disabled-tooltip"
+                [title]="!classHeadAccess(currentSclassName) ? 'Nincs jogosultsága a művelethez': ''"
+          >
+            <button class="btn btn-warning btn-sm mx-1 my-1" (click)="openForm('update',student)"
+            [disabled]="!classHeadAccess(currentSclassName)" appButtonHover [highlightColor]="'#fff3cd'">
+              <i class="fa fa-refresh"></i>
+            </button>
+          </span>
+          <span class="disabled-tooltip"
+                [title]="!parentAccess(student.name) && !anonymAccess() ? 'Nincs jogosultsága a művelethez': ''"
+          >
+            <button class="btn btn-info mx-1 my-1" (click)="openForm('read',student)"
+            [disabled]="!parentAccess(student.name) && !anonymAccess()" appButtonHover [highlightColor]="'#cff4fc'">
+              <i class="fa fa-info"></i>
+            </button>
+          </span>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="crud-container btn-group-sm text-center" >
+    <div class="btn-group-sm text-center">
+      <span class="disabled-tooltip"
+            [title]="!adminAccess() ? 'Nincs jogosultsága a művelethez': ''"
+      >
+        <button
+          class="btn btn-success btn-sm  mx-1 my-1"
+          (click)="openForm('add', emptyStudent)"
+          [disabled]="!adminAccess()"
+          appButtonHover
+          [highlightColor]="'#82e0aa'"
+        >
+          <i class="fa fa-plus"></i>
+        </button>
+      </span>
+      <span>
+        <button class="btn btn-info btn-sm  mx-1 my-1" (click)="openGallery()"
+                appButtonHover [highlightColor]="'#cff4fc'">
+          <i class="fa fa-solid fa-images"></i>
+        </button>
+      </span>
+    </div>
+    <div class="btn-group-sm text-center">
+      <span class="disabled-tooltip"
+            [title]="!adminAccess() ? 'Nincs jogosultsága a művelethez': ''"
+      >
+        <button class="btn btn-dark btn-sm my-2" [disabled]="!adminAccess()"
+                appButtonHover [highlightColor]="'#9a9a9a'" (click)="removeAllStudents()"
+                [title]="!adminAccess() && !anonymAccess()? 'Nincs jogosultsága a művelethez' : ''"
+        >
+          Összes törlése
+        </button>
+      </span>
+    </div>
+  </div>
+
+  <div class="overlap" *ngIf="crudMode || picturesMode"></div>
+
+  <div class="details-container" *ngIf="crudMode">
+    <app-student-details
+      [operation]="crudOperation"
+      [index]="currentIndex"
+      (formClose)="crudMode = false"
+      (crudDone)="setMessage($event)">
+    </app-student-details>
+  </div>
+
+  <div class="gallery-container" *ngIf="picturesMode">
+    <app-gallery [classNames]="sclassNames"
+     (galleryClose)="this.picturesMode = false"></app-gallery>
+  </div>
+</div>

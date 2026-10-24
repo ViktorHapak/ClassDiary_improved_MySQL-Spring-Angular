@@ -316,18 +316,6 @@ td{
     width: 90%;
   }
 
-  .details-container{
-    width: 40%;
-    left: 30%;
-  }
-
-  .subject-details-container{
-    width: 40%;
-    left: 30%;
-  }
-}
-
-@media (max-width: 800px) {
   .filter-div{
     flex-direction: column;
   }
@@ -389,6 +377,14 @@ td{
     right: 10%;
   }
 
+  .subject-details-container{
+    width: 40%;
+    left: 30%;
+  }
+
+  .lecturing-title {
+      display: none;
+  }
 }
 
 

@@ -27,17 +27,6 @@
   float: right;
   align-items: center;
   font-size: 12px;
-  margin-right: 20px;
-}
-
-.sizelength-div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    float: none;
-    margin: 0;
-    font-size: 12px;
 }
 
 #pagesize-selector:focus{

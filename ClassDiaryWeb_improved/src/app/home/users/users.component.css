@@ -29,6 +29,14 @@
   font-size: 12px;
 }
 
+#pagesize-selector {
+    width: 40px;
+    max-height: 20px;
+    margin-left: 3px;
+    background-color: #f1fcfc;
+    border: 0.1px solid gray;
+}
+
 #pagesize-selector:focus{
   outline: none;
   box-shadow: 0 0 2px gray !important;

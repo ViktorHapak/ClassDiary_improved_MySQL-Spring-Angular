@@ -477,9 +477,18 @@ tr{
       display: flex;
       align-items: center;
       justify-content: center;
-
       width: 100%;
       margin: 0;
+      padding: 0;
+  }
+
+  .page-controls ::ng-deep .ngx-pagination {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 0;
+      padding: 0;
   }
 
   .sizelength-div {
@@ -521,6 +530,18 @@ tr{
     .sizelength-div {
         font-size: 12px;
     }
+
+  .page-controls ::ng-deep .ngx-pagination li a,
+  .page-controls ::ng-deep .ngx-pagination li.current {
+    min-width: 32px;
+    height: 32px;
+    padding: 0 5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0;
+  }
+  
 }
 
 

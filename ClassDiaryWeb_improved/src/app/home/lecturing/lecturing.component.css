@@ -389,6 +389,10 @@ td{
     right: 10%;
   }
 
+  .title-div{
+    justify-content: flex-end;
+  }
+
   .lecturing-title {
       display: none;
   }

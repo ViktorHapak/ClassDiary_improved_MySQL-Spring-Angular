@@ -352,8 +352,16 @@ td{
     flex-direction: column-reverse;
   }
 
-  .pagination-div .btn{
-    width: 70%;
+  pagination-controls {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .pagination-div .btn {
+    width: auto;
+    white-space: nowrap;
   }
 
   .lecturing-table thead, .lecturing-table tbody tr td{

@@ -17,7 +17,7 @@
     <a>Adatok eléréséhez jelentkezzen be!</a>
  </div>
 
-  <div class="side-information">
+  <div class="side-information" *ngIf="isLoggedIn">
     <a class="count" *ngIf="storageService.count!=-1">Létszám: {{storageService.count}}</a>
     <a class="count"><span>Tanév:</span> {{storageService.getSchoolYear()}}</a>
   </div>

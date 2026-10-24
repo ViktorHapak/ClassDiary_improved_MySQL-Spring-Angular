@@ -108,6 +108,10 @@
   padding: 5px;
 }
 
+pagination-controls{
+    margin-top: 10px;
+  }
+
 .title-div{
   display: flex;
   justify-content: space-between;

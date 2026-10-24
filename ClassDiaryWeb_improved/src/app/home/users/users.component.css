@@ -3,20 +3,24 @@
   width: 70%;
 }
 
-.pagination-div{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 10px 10px;
-  padding: 5px;
-  background-color: #e3f9fc;
+.pagination-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin: 10px;
+    padding: 15px 20px;
+    background-color: #e3f9fc;
 }
 
-.page-controls{
-  width: auto;
-  height: auto;
-  font-weight: 500;
+.page-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    font-weight: 500;
 }
+
 
 .sizelength-div{
   display: inline-flex;
@@ -26,12 +30,14 @@
   margin-right: 20px;
 }
 
-#pagesize-selector{
-  width: 40px;
-  max-height: 20px;
-  margin-left: 3px;
-  background-color: #f1fcfc;
-  border: 0.1px solid gray;
+.sizelength-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    float: none;
+    margin: 0;
+    font-size: 12px;
 }
 
 #pagesize-selector:focus{
@@ -368,13 +374,37 @@ tr{
     margin-left: 0;
   }
 
-  .current-div a{
-    width: 100%;
+  .current-div {
+      width: 80%;
+      max-width: 450px;
+      margin: 15px auto;
+      padding: 15px;
+      box-sizing: border-box;
   }
 
-  .current-div a label{
-    text-align: left;
-    width: 20%;
+  .current-data-div {
+      width: 100%;
+      max-height: none;
+      overflow-y: visible;
+      padding: 5px;
+  }
+
+  .current-div a {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+
+      gap: 5px;
+      width: 100%;
+      overflow-wrap: anywhere;
+  }
+
+  .current-div a label {
+      width: auto;
+      min-width: 70px;
+      margin-right: 10px;
+      text-align: left;
   }
 
   .details-container{
@@ -419,8 +449,15 @@ tr{
   }
 
   .roles-div {
-    width: 70%;
-    margin: 10px auto;
+      width: 80%;
+      max-width: 450px;
+      margin: 10px auto;
+
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
   }
 
   .current-div {
@@ -431,30 +468,30 @@ tr{
 
 @media (max-width: 750px) {
   .pagination-div {
-      display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 15px;
 
+      gap: 15px;
       padding: 15px 10px;
   }
 
   .page-controls {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      margin: 0;
-  }
-
-  .sizelength-div {
       display: flex;
       align-items: center;
       justify-content: center;
 
-      float: none;
-      margin: 0;
       width: 100%;
+      margin: 0;
+  }
+
+  .sizelength-div {
+      width: 100%;
+      margin: 0;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
   }
   
   .title-div{
@@ -466,6 +503,27 @@ tr{
     font-size: 12px;
     padding: 5px 10px;
   }
+}
+
+@media (max-width: 500px) {
+
+    .search-div,
+    .roles-div,
+    .current-div {
+        width: 95%;
+        max-width: none;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .pagination-div {
+        margin: 10px 0;
+        padding: 15px 5px;
+    }
+
+    .sizelength-div {
+        font-size: 12px;
+    }
 }
 
 

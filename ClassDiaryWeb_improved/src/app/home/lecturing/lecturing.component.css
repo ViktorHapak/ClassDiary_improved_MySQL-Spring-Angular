@@ -429,6 +429,11 @@ td{
 }
 
 @media (max-width: 650px) {
+  .container {
+    width: 90%;
+    margin: 15px auto;
+  }
+  
   .search-div {
     width: 100%;
     max-width: 100%;
@@ -463,6 +468,17 @@ td{
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
+  }
+
+  .lecturing-container {
+    width: 100%;
+    margin: 5px auto;
+  }
+
+  .lecturing-table {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .crud-container {

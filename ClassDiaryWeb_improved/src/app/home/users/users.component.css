@@ -197,6 +197,9 @@ tr{
 .search-div input[type="text"]{
   padding-left: 10px;
   width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .search-div input{

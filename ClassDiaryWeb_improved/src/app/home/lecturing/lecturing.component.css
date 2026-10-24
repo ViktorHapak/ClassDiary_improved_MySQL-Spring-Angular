@@ -428,5 +428,66 @@ td{
 
 }
 
+@media (max-width: 650px) {
+  .search-div {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .filter {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .filter input[type="text"] {
+    width: 100%;
+    min-width: 0;
+    flex: 1 1 auto;
+    box-sizing: border-box;
+    font-size: 11px;
+  }
+
+  .filter input[type="text"]::placeholder {
+    font-size: 10px;
+  }
+
+  .filter .btn {
+    flex: 0 0 45px;
+    width: 45px;
+    padding: 0;
+  }
+
+  .search-list {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .crud-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .crud-container > div {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    gap: 8px;
+  }
+
+  .crud-container .btn {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+}
+
 
 

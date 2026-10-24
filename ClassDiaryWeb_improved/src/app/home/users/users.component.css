@@ -511,6 +511,23 @@ tr{
   }
 }
 
+@media (max-width: 650px){
+  .operations-td .btn {
+      width: 40px;
+      height: 40px;
+      min-width: 40px;
+      min-height: 40px;
+      padding: 0;
+  
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+  
+      flex: 0 0 40px;
+      aspect-ratio: 1 / 1;
+  }
+}
+
 @media (max-width: 500px) {
 
     .search-div,

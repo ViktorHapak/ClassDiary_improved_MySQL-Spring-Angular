@@ -19,6 +19,7 @@
     justify-content: center;
     width: auto;
     font-weight: 500;
+    margin-top: 20px;
 }
 
 .page-controls ul {
@@ -368,6 +369,10 @@ tr{
     font-size: 20px;
     color: #4cbb17;
     font-weight: bold;
+  }
+
+  .page-controls {
+    margin-top: auto;
   }
 
   .search-div, .roles-div, .current-div{

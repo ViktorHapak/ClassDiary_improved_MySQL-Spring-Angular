@@ -467,7 +467,9 @@ td{
 
   .crud-container {
     display: flex;
+    margin-left: auto;
     flex-direction: column;
+    justify-content: center;
     align-items: stretch;
     width: 100%;
     padding: 0;
@@ -478,6 +480,7 @@ td{
   .crud-container > div {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: stretch;
     width: 100%;
     gap: 8px;

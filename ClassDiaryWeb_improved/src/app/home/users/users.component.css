@@ -21,6 +21,9 @@
     font-weight: 500;
 }
 
+.page-controls ul {
+    margin-bottom: 0;
+}
 
 .sizelength-div{
   display: inline-flex;

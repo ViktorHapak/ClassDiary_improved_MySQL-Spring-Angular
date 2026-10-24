@@ -182,24 +182,41 @@ tr{
 }
 
 .search-div {
-  width: 80%;
-  margin-left: 10%;
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    align-items: stretch;
+    width: 80%;
+    margin: 0 auto 10px;
+    height: 40px;
 }
 
-.search-div *{
-  height: 40px;
+.search-div input[type="text"] {
+    flex: 1 1 auto;
+    width: 0;
+    min-width: 0;
+    height: 100%;
+
+    padding: 0 10px;
+    box-sizing: border-box;
 }
 
-.search-div input[type="text"]{
-  padding-left: 10px;
-  width: 80%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.search-div button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 60px;
+    width: 60px;
+    height: 100%;
+
+    padding: 0;
+    border-radius: 0 0.5rem 0.5rem 0;
+}
+
+.search-div button i {
+    width: auto;
+    height: auto;
+    font-size: 18px;
+    line-height: 1;
 }
 
 .search-div input{
@@ -217,13 +234,6 @@ tr{
 .search-div input:hover{
   box-shadow: 0 0 2px greenyellow !important;
   border: 0.1px solid greenyellow;
-}
-
-.search-div button{
-  padding-left: 30px;
-  padding-right: 30px;
-  max-width: 20%;
-  border-radius: 0 0.5rem 0.5rem 0;
 }
 
 .roles-div{
@@ -383,41 +393,38 @@ tr{
     font-size: 14px;
   }
 
-  .info-div{
+  .info-div {
+    width: 100%;
     margin-top: 20px;
     margin-bottom: 10px;
   }
 
-  .info-div *{
-    width: 100%;
-  }
-
-  .title-div{
-    margin-bottom: 10px;
-  }
-
   .search-div {
-    width: 40%;
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .search-div *{
-    height: 30px;
-  }
-
-  .search-div input[type="text"]{
-    padding-left: 10px;
     width: 80%;
+    max-width: 450px;
+    height: 35px;
+    margin: 0 auto 10px;
   }
 
-  .search-div input{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 12px;
+  .search-div button {
+    flex: 0 0 45px;
+    width: 45px;
+    padding: 0;
+  }
+
+  .search-div button i {
+    width: auto;
+    height: auto;
+    font-size: 16px;
+  }
+
+  .roles-div {
+    width: 100%;
+    margin: 10px auto;
+  }
+
+  .current-div {
+    margin: 0 auto;
   }
 
 }

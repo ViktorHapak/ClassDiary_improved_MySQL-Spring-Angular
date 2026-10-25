@@ -58,7 +58,7 @@
           </option>
         </select>
       </div>
-      <button class="btn btn-danger" appButtonHover [highlightColor]= "'#f5b7b1'"
+      <button class="btn btn-danger remove-class-btn" appButtonHover [highlightColor]= "'#f5b7b1'"
               [disabled]="operation != 'update'" *ngIf="student.sclass != '' else addTemplate" (click)="removeFromClass()">
         Eltávolítás</button>
       <ng-template #addTemplate>

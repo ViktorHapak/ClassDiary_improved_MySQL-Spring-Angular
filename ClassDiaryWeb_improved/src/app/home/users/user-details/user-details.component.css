@@ -236,18 +236,150 @@ select[multiple]{
   overflow-y: auto;
 }
 
-@media (max-height: 630px) {
-  .controls{
-    height: 200px;
+@media (max-width: 650px) {
+
+  .title-div {
+    font-size: 17px;
+    padding: 8px;
+    gap: 5px;
+    align-items: center;
   }
 
-  .container{
+  .title-div .btn {
+    font-size: 11px;
+    padding: 4px 8px;
+    flex-shrink: 0;
+  }
+
+  .controls {
+    width: 94%;
+    margin: 0 auto;
+    padding: 8px;
+    max-height: 400px;
+    box-sizing: border-box;
+  }
+
+  .control-div {
+    width: 100%;
+    margin-bottom: 6px;
+  }
+
+  .control-div label,
+  .controls label {
+    font-size: 12px;
+    margin-left: 2px;
+    white-space: normal;
+  }
+
+  .control-div input,
+  .children-div input[type="text"] {
+    width: 100%;
+    min-width: 0;
+    height: 30px;
+    padding: 4px 6px;
+    font-size: 12px;
+    box-sizing: border-box;
+  }
+
+  input::placeholder {
+    font-size: 10px;
+  }
+
+  .control-div small {
     height: auto;
-    max-height: 100%;
-    overflow-y: scroll;
+    min-height: 20px;
+    max-height: none;
+    font-size: 10px;
+    padding: 3px;
+    overflow-wrap: anywhere;
   }
 
+  .role-div a {
+    font-size: 12px;
+    padding: 5px;
+    overflow-wrap: anywhere;
+  }
 
+  .sclass-div {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    padding: 4px 0;
+  }
 
+  .sclass-div > div {
+    width: 100%;
+    min-width: 0;
+    align-items: center;
+  }
 
+  .sclass-div select {
+    min-width: 0;
+    font-size: 12px;
+  }
+
+  .sclass-div > .btn {
+    width: 100%;
+  }
+
+  .sclass-div .btn,
+  .children-div .btn {
+    font-size: 11px;
+    padding: 6px 8px;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .children-div {
+    width: 100%;
+  }
+
+  .student-list {
+    width: 100%;
+    max-height: 120px;
+    font-size: 12px;
+  }
+
+  .student-list a {
+    font-size: 12px;
+    padding: 4px 6px;
+    overflow-wrap: anywhere;
+  }
+
+  .roles-group {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+    width: 100%;
+  }
+
+  .roles-group .btn {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    font-size: 11px;
+    padding: 6px 8px;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .more-div {
+    width: 100%;
+    margin-top: 12px;
+  }
+
+  .btn-success {
+    width: 90%;
+    font-size: 12px;
+    padding: 7px 10px;
+    margin: 12px auto;
+  }
+
+  .alert-danger {
+    width: 94%;
+    margin: 8px auto;
+    padding: 8px;
+    font-size: 11px;
+    overflow-wrap: anywhere;
+  }
 }

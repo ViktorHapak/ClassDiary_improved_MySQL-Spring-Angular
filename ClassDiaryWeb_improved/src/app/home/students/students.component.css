@@ -326,6 +326,33 @@ select[multiple]{
     padding-left: 20px;
   }
 
+   .pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 5px 0;
+    padding: 0;
+  }
+
+  pagination-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  pagination-controls ::ng-deep .ngx-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+  }
+
   .table{
     font-size: 12px;
   }

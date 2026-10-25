@@ -136,17 +136,7 @@ li a:hover  {
 
 @media (max-width: 650px) {
   .side-information{
-    bottom: 2px;
-    left: 2px;
-    padding: 2px;
-    font-size: 6px;
-    min-width: 50px;
-    max-width: 70px;
-  }
-
-  .side-information *{
-    display: block;
-    font-size: 6px;
+    display: none;
   }
 }
 

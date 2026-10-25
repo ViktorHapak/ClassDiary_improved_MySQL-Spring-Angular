@@ -526,6 +526,18 @@ tr{
       flex: 0 0 40px;
       aspect-ratio: 1 / 1;
   }
+
+  .users thead tr th {
+    font-size: 8px;
+  }
+
+  .users-table thead tr th:first-child {
+    border-top-left-radius: 1rem;
+  }
+  
+  .users-table thead tr th:last-child {
+    border-top-right-radius: 1rem;
+  }
 }
 
 @media (max-width: 500px) {

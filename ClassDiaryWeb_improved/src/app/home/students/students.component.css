@@ -235,7 +235,9 @@ i{
 
 select{
   border-radius: 5px;
-  padding: 2px
+  padding: 2px;
+  max-height: 150px;
+  overflow-y: scroll;
 }
 
 select:focus {
@@ -407,6 +409,16 @@ select[multiple]{
     flex: 1;
     min-width: 0;
     text-align: right;
+  }
+
+  select option {
+    padding-right: 15px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    font-size: 12px;
+    background-color: white;
+    color: black;
+    overflow-y: scroll;
   }
 
   .sclass-buttons {

@@ -481,6 +481,14 @@ td{
     margin-right: auto;
   }
 
+  .lecturing-table thead tr th {
+    font-size: 8px;
+  }
+
+  .lecturing-table thead tr th div i {
+    font-size: 7px;
+  }
+
   .crud-container {
     display: flex;
     margin-left: auto;

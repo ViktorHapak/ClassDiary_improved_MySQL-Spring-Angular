@@ -356,6 +356,62 @@ select[multiple]{
 
 @media (max-width: 650px) {
 
+  .sclass-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    box-sizing: border-box;
+  }
+
+  .selector-div {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+    margin: 0 !important;
+    box-sizing: border-box;
+  }
+
+  .selector-div label {
+    flex: 0 0 auto;
+  }
+
+  .selector-div select {
+    flex: 1;
+    min-width: 0;
+    text-align: right;
+  }
+
+  .sclass-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 !important;
+    float: none;
+    box-sizing: border-box;
+  }
+
+  #year-selector {
+    grid-column: 1 / -1;
+    width: 100%;
+    text-align: right;
+  }
+
+  .sclass-buttons > .disabled-tooltip {
+    display: block;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .sclass-buttons > .disabled-tooltip > button {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
   .students-title {
     display: none;
   }

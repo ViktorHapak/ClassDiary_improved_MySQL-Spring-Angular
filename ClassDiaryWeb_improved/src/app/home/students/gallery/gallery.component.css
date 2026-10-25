@@ -422,7 +422,6 @@ select[multiple]{
     box-sizing: border-box;
   }
 
-  /* Поиск и фильтр */
   .search-div {
     width: 100%;
     gap: 5px;

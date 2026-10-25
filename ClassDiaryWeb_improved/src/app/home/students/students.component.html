@@ -75,7 +75,7 @@
       </thead>
       <tbody>
       <tr *ngIf="students.length === 0">
-        <td colspan="4">
+        <td [attr.colspan]="4">
           <div class="empty-div">
             <label class="empty-label">
               Nincs keresésnek megfelelő találat!

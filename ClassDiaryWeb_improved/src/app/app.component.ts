@@ -26,8 +26,6 @@ export class AppComponent implements OnInit,AfterViewInit,OnDestroy {
   isRightMenuOpen: boolean = false;
   eventBusSub?: Subscription;
 
-  @ViewChild('rightMenu') rightMenu!: ElementRef;
-
   constructor(
     protected storageService: StorageService,
     private teacherService: TeacherService,
@@ -94,14 +92,4 @@ export class AppComponent implements OnInit,AfterViewInit,OnDestroy {
     }
   }
 
-  @HostListener('document:click', ['$event'])
-  exitMenu(event: MouseEvent): void {
-    if (!this.isRightMenuOpen) return;
-
-    const target = event.target as Node;
-
-    if (!this.rightMenu.nativeElement.contains(target)) {
-      this.isRightMenuOpen = false;
-    }
-  }
 }

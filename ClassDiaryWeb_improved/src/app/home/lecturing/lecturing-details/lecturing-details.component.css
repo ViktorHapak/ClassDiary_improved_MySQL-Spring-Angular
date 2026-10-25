@@ -120,18 +120,6 @@ label, input[type='text']{
   width: 90%;
 }
 
-@media (max-height: 630px) {
-  .controls{
-    height: 200px;
-  }
-
-  .container{
-    height: auto;
-    max-height: 100%;
-    overflow-y: scroll;
-  }
-}
-
 @media (max-width: 700px) {
   .title-div{
     font-size: 20px;
@@ -141,5 +129,79 @@ label, input[type='text']{
   .title-div .btn{
     font-size: 12px;
     padding: 5px 10px;
+  }
+}
+
+@media (max-width: 650px) {
+  .title-div {
+    font-size: 17px;
+    padding: 8px;
+    gap: 5px;
+    align-items: center;
+  }
+
+  .title-div .btn {
+    font-size: 11px;
+    padding: 4px 8px;
+  }
+
+  .controls {
+    width: 94%;
+    margin: 0 auto;
+    padding: 8px;
+    max-height: 300px;
+    box-sizing: border-box;
+  }
+
+  .control-div {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+
+  label {
+    font-size: 12px;
+    padding: 3px;
+    margin-bottom: 3px;
+  }
+
+  input[type="text"] {
+    width: 100%;
+    min-width: 0;
+    height: 30px;
+    padding: 4px 6px;
+    font-size: 12px;
+    box-sizing: border-box;
+  }
+
+  input[type="text"]::placeholder {
+    font-size: 10px;
+  }
+
+  .search-list {
+    width: 100%;
+    max-height: 90px;
+    font-size: 12px;
+    box-sizing: border-box;
+  }
+
+  .search-list a {
+    font-size: 12px;
+    padding: 4px 6px;
+    overflow-wrap: anywhere;
+  }
+
+  .btn-success {
+    width: 90%;
+    font-size: 12px;
+    padding: 6px 10px;
+    margin: 12px auto;
+  }
+
+  .alert-danger {
+    width: 94%;
+    margin: 8px auto;
+    font-size: 11px;
+    padding: 8px;
+    overflow-wrap: anywhere;
   }
 }

@@ -226,5 +226,97 @@ select[multiple]{
 
 }
 
+@media (max-width: 650px) {
+  .form-container {
+    width: 90%;
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 10px;
+  }
+
+  .title {
+    width: 100%;
+    height: auto;
+    min-height: 50px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 18px;
+  }
+
+  .title a {
+    width: 100%;
+    padding: 8px 5px;
+    box-sizing: border-box;
+  }
+
+  .controls {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    gap: 5px;
+  }
+
+  .control-div {
+    display: flex;
+    width: 100%;
+    padding: 5px 0;
+    box-sizing: border-box;
+  }
+
+  .birth-wrapper {
+    display: flex;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .birth-div {
+    display: flex;
+    width: 100%;
+    padding: 5px 0;
+    box-sizing: border-box;
+  }
+
+  .control-div input,
+  .birth-field {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .control-div,
+  .birth-div {
+    min-height: 65px;
+  }
+
+  small {
+    height: auto;
+    min-height: 0;
+    max-height: none;
+    margin-bottom: 0;
+    font-size: 11px;
+    line-height: 1.2;
+  }
+
+  .calendar-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    right: auto;
+    transform: translate(-50%, -50%);
+    width: max-content;
+    max-width: calc(100vw - 20px);
+    height: auto;
+    z-index: 8;
+  }
+
+  .form-container > form > .btn {
+    width: 90%;
+    max-width: 300px;
+    margin: 15px auto;
+    white-space: normal;
+  }
+}
+
 
 

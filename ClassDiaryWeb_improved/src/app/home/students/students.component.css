@@ -354,4 +354,33 @@ select[multiple]{
   }
 }
 
+@media (max-width: 650px) {
+
+  .students-title {
+    display: none;
+  }
+
+  .title-div {
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .student-container table th:nth-child(3),
+  .student-container table td:nth-child(3) {
+    display: none;
+  }
+
+  #operations-th {
+    font-size: 0;
+  }
+
+  .student-container {
+    width: 100%;
+  }
+
+  .student-container table {
+    width: 100%;
+  }
+}
+
 

@@ -151,18 +151,6 @@ select[multiple]{
   overflow-y: auto;
 }
 
-@media (max-height: 630px) {
-  .controls{
-    height: 200px;
-  }
-
-  .container{
-    height: auto;
-    max-height: 100%;
-    overflow-y: scroll;
-  }
-}
-
 @media (max-width: 850px) {
   .title-div{
     font-size: 20px;
@@ -172,6 +160,98 @@ select[multiple]{
   .title-div .btn{
     font-size: 12px;
     padding: 5px 10px;
+  }
+}
+
+@media (max-width: 650px) {
+
+  .title-div {
+    font-size: 17px;
+    gap: 5px;
+    padding: 8px;
+    align-items: center;
+  }
+
+  .title-div .btn {
+    font-size: 11px;
+    padding: 4px 8px;
+    flex-shrink: 0;
+  }
+
+  .controls {
+    width: 94%;
+    margin: 0 auto;
+    padding: 8px;
+    box-sizing: border-box;
+    max-height: 400px;
+  }
+
+  .control-div {
+    margin-bottom: 5px;
+  }
+
+  .control-div * {
+    font-size: 12px;
+    padding: 4px;
+    box-sizing: border-box;
+  }
+
+  label {
+    font-size: 12px;
+    margin-left: 2px;
+  }
+
+  .control-div input,
+  .control-div textarea {
+    font-size: 12px;
+    width: 100%;
+  }
+
+  .control-div small {
+    font-size: 11px;
+    height: auto;
+    min-height: 20px;
+    max-height: none;
+    white-space: normal;
+  }
+
+  .sclass-div {
+    gap: 5px;
+    padding: 3px;
+  }
+
+  .sclass-div select {
+    font-size: 12px;
+    max-width: 100%;
+  }
+
+  .sclass-div .btn {
+    font-size: 11px;
+    padding: 4px 7px;
+    margin: 0;
+  }
+
+  .sclass-div .remove-class-btn {
+    font-size: 0;
+    min-width: 28px;
+    min-height: 26px;
+  }
+
+  .sclass-div .remove-class-btn::after {
+    content: "−";
+    font-size: 18px;
+    line-height: 1;
+  }
+
+  .parent-list a {
+    font-size: 12px;
+    padding: 4px;
+  }
+
+  .btn-success {
+    font-size: 12px;
+    padding: 6px;
+    margin: 12px auto;
   }
 }
 
